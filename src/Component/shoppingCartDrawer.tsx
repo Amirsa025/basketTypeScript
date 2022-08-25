@@ -8,6 +8,7 @@ import {
     DrawerContent,
 } from '@chakra-ui/react'
 import {useShoppingCart} from "../context/ShoppingCartContext";
+import CartItem from "./CartItem";
 type ShoppingCartProps ={
     open:boolean
 }
@@ -21,6 +22,11 @@ const ShoppingCartDrawer = ({open}:ShoppingCartProps) => {
                 <DrawerContent>
                     <DrawerHeader borderBottomWidth='1px'>shopping cart</DrawerHeader>
                     <DrawerBody>
+                        {cartItem.map((cartItem,id)=>{
+                            return (
+                                    <CartItem {...cartItem} key={id}/>
+                            )
+                        })}
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
